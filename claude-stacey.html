@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Coaching SRM - Personal Training Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #0d0d0d;
+            --gold: #d4af37;
+            --gold-light: #e8c547;
+            --text-light: #f5f5f5;
+            --text-muted: #b0b0b0;
+            --accent: #2a2a2a;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary) 90%, rgba(212, 175, 55, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white !important;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            background: #20ba5a;
+        }
+
+        .whatsapp-btn::after {
+            display: none !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-align: left;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .hero-checkmarks {
+            list-style: none;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-checkmarks li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .hero-checkmarks li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #25D366;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
+            background: #20ba5a;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            border-radius: 50px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 1rem auto 0;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* Services Section */
+        #services {
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(212, 175, 55, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Why Choose Section */
+        #why-choose {
+            background: var(--primary);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+        }
+
+        .why-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--accent);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Pricing Section */
+        #pricing {
+            background: var(--primary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(212, 175, 55, 0.03) 100%);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin: 1.5rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-muted);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        /* CTA Section */
+        #cta {
+            background: linear-gradient(135deg, var(--secondary) 0%, rgba(212, 175, 55, 0.1) 100%);
+            text-align: center;
+        }
+
+        #cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--primary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 2rem;
+            background: var(--accent);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .contact-method h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .contact-method a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .contact-method a:hover {
+            color: var(--gold);
+        }
+
+        .contact-info {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .whatsapp-btn {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .hero-image {
+                min-height: 350px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card:hover {
+                transform: translateY(-5px);
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="srm-logo.jpeg" alt="SRM Performance Coaching Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="https://wa.me/447596414425" target="_blank" class="whatsapp-btn">💬 WhatsApp Me</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Transform Your <span>Performance</span></h1>
+                <p>Professional 1-to-1 personal training with Stacey at Club Gym in Glasgow City Centre & Kirkintiloch.</p>
+                <ul class="hero-checkmarks">
+                    <li>8+ Years PT experience</li>
+                    <li>Scottish & world kickboxing multi-title winner</li>
+                    <li>GB Boxing Squad - Tokyo Olympics</li>
+                    <li>Training men & women for both weight loss and muscle gain</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/447596414425" target="_blank" class="btn btn-primary">💬 WhatsApp Me</a>
+                    <a href="#testimonials" class="btn btn-secondary">Client Results</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="srm-hero.jpg" alt="Professional personal trainer coaching client" />
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Performance Coaching SRM</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Professional Excellence in Personal Training</h3>
+                <p>With years of experience in fitness coaching and performance optimization, I'm dedicated to helping you achieve your health and fitness goals. My approach combines evidence-based training methods with personalized coaching to deliver real, measurable results.</p>
+                <p>Whether you're looking to build strength, improve endurance, lose weight, or optimize athletic performance, I'll create a customized program tailored specifically to your needs and lifestyle.</p>
+                <ul class="benefits-list">
+                    <li>Personalized training programs</li>
+                    <li>Nutrition guidance and support</li>
+                    <li>Progress tracking and adjustments</li>
+                    <li>Flexible scheduling options</li>
+                    <li>Accountability and motivation</li>
+                </ul>
+            </div>
+            <div class="about-image" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05)); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--gold);">
+                💪
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>One-to-One Coaching</h3>
+                <p>Dedicated personal training sessions tailored to your specific goals, fitness level, and preferences. Full attention and expert guidance every step of the way.</p>
+            </div>
+            <div class="service-card">
+                <h3>Online Training</h3>
+                <p>Access professional coaching from anywhere. Perfect for those with busy schedules or who prefer training from home. Full support and programming included.</p>
+            </div>
+            <div class="service-card">
+                <h3>Nutrition Planning</h3>
+                <p>Customized nutrition strategies to complement your training and maximize results. Simple, sustainable approaches that fit your lifestyle.</p>
+            </div>
+            <div class="service-card">
+                <h3>Group Training</h3>
+                <p>Energy-packed group sessions designed to push your limits while building community. Great for motivation and accountability.</p>
+            </div>
+            <div class="service-card">
+                <h3>Athletic Performance</h3>
+                <p>Sport-specific training programs to enhance your athletic capabilities, improve technique, and prevent injuries.</p>
+            </div>
+            <div class="service-card">
+                <h3>Transformation Plans</h3>
+                <p>Comprehensive programs combining training, nutrition, and lifestyle coaching for complete body and mind transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="why-choose">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🎯</div>
+                <h3>Goal-Focused</h3>
+                <p>Every program is designed with your specific goals in mind. We measure progress and adjust accordingly.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📊</div>
+                <h3>Data-Driven</h3>
+                <p>Using science-backed training principles and regular assessments to ensure optimal results.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💯</div>
+                <h3>Professional</h3>
+                <p>Certified and experienced coaching with a focus on proper form, safety, and injury prevention.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⏰</div>
+                <h3>Flexible</h3>
+                <p>Accommodating schedules with options for in-person or online training to fit your lifestyle.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🤝</div>
+                <h3>Supportive</h3>
+                <p>Beyond training—ongoing motivation, accountability, and support to keep you on track.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">✅</div>
+                <h3>Results</h3>
+                <p>Proven track record of helping clients achieve their fitness and health goals consistently.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Working with SRM transformed not just my physique, but my entire approach to fitness. The personalized programming and constant support made all the difference."</p>
+                <div class="testimonial-author">Sarah M.</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"I've worked with several trainers before, but the level of professionalism and results I've achieved here are unmatched. Highly recommended!"</p>
+                <div class="testimonial-author">James T.</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"The flexibility of online training meant I could finally commit to my fitness goals with my busy schedule. The coaching is outstanding."</p>
+                <div class="testimonial-author">Emma P.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2 class="section-title">Pricing Plans</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">4 Sessions/Month</p>
+                <div class="price">£199<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>4 one-to-one sessions</li>
+                    <li>Basic nutrition guidance</li>
+                    <li>Progress tracking</li>
+                    <li>Email support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Professional</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">8 Sessions/Month</p>
+                <div class="price">£379<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>8 one-to-one sessions</li>
+                    <li>Full nutrition planning</li>
+                    <li>Weekly progress review</li>
+                    <li>24/7 messaging support</li>
+                    <li>Monthly assessment</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Elite</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">12 Sessions/Month</p>
+                <div class="price">£549<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>12 one-to-one sessions</li>
+                    <li>Complete nutrition program</li>
+                    <li>Bi-weekly assessments</li>
+                    <li>Priority support</li>
+                    <li>Program customization</li>
+                    <li>Accountability coaching</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <h2>Ready to Transform?</h2>
+        <p>Take the first step towards your fitness goals. Get a personalized consultation and custom training plan designed just for you.</p>
+        <a href="#contact" class="btn btn-primary">Book Your Consultation</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p class="contact-info">Get in touch via email</p>
+                <a href="mailto:your-email@example.com">your-email@example.com</a>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p class="contact-info">Quick messaging support</p>
+                <a href="https://wa.me/447596414425" target="_blank">+44 7596 414425</a>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">📱</div>
+                <h3>Phone</h3>
+                <p class="contact-info">Direct call support</p>
+                <a href="tel:+447596414425">+44 7596 414425</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Performance Coaching <span>SRM</span>. All rights reserved. | <a href="/" style="color: var(--text-light); text-decoration: none;">www.srmperformancecoaching.co.uk</a></p>
+    </footer>
+
+    <script>
+        // Smooth scroll navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update navigation active state on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.color = 'var(--text-light)';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--gold)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
