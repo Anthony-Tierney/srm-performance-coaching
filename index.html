@@ -112,8 +112,8 @@
         }
 
         .whatsapp-btn {
-            background: #25D366;
-            color: white !important;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--primary) !important;
             padding: 0.7rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
@@ -123,8 +123,7 @@
 
         .whatsapp-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            background: #20ba5a;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
 
         .whatsapp-btn::after {
@@ -137,7 +136,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #1a1a2e 100%);
+            background: var(--primary);
             position: relative;
             overflow: hidden;
             padding: 2rem;
@@ -187,7 +186,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -235,7 +234,7 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #25D366;
+            color: var(--gold);
             font-weight: 700;
             font-size: 1.3rem;
         }
@@ -281,15 +280,14 @@
         }
 
         .btn-primary {
-            background: #25D366;
-            color: white;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--primary);
             border-radius: 50px;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
-            background: #20ba5a;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
@@ -377,14 +375,35 @@
 
         /* Services Section */
         #services {
-            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+            background: var(--primary);
         }
 
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
             gap: 2.5rem;
             margin-top: 3rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .services-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .services-grid::-webkit-scrollbar-track {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+        }
+
+        .services-grid::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .services-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
         }
 
         .service-card {
@@ -395,6 +414,8 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            min-width: 280px;
+            flex-shrink: 0;
         }
 
         .service-card::before {
@@ -471,7 +492,7 @@
 
         /* Testimonials */
         #testimonials {
-            background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+            background: var(--primary);
         }
 
         .testimonials-grid {
@@ -577,7 +598,7 @@
 
         /* CTA Section */
         #cta {
-            background: linear-gradient(135deg, var(--secondary) 0%, rgba(212, 175, 55, 0.1) 100%);
+            background: var(--primary);
             text-align: center;
         }
 
@@ -747,7 +768,12 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="https://wa.me/447596414425" target="_blank" class="whatsapp-btn">💬 WhatsApp Me</a>
+                <a href="https://wa.me/447596414425" target="_blank" class="whatsapp-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; margin-right: 8px; vertical-align: middle;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.05-1.58C10.03 21.63 10.99 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-.89 0-1.77-.17-2.61-.49l-.19-.09-1.94.51.52-1.91-.12-.19C4.39 16.4 4 14.27 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.07-7.18c-.22-.11-1.31-.65-1.52-.72-.21-.08-.36-.11-.52.11-.16.22-.62.72-.76.87-.14.15-.28.17-.5.06-.22-.11-.92-.34-1.75-1.08-.65-.58-1.08-1.28-1.21-1.5-.12-.21-.01-.33.1-.44.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.08-.15.04-.28-.02-.39-.06-.11-.52-1.25-.71-1.71-.19-.45-.38-.39-.52-.4-.13-.01-.28-.01-.43-.01-.14 0-.37.05-.56.27-.2.21-.76.74-.76 1.81 0 1.07.78 2.1.88 2.25.1.15 1.4 2.14 3.4 3 .48.2.85.32 1.14.41.48.16.92.14 1.27.08.39-.06 1.21-.49 1.38-.97.17-.47.17-.88.12-.97-.05-.09-.19-.14-.41-.23z"/>
+                    </svg>
+                    WhatsApp Me
+                </a>
             </nav>
         </div>
     </header>
@@ -756,8 +782,8 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Transform Your <span>Performance</span></h1>
-                <p>Professional 1-to-1 personal training with Stacey at Club Gym in Glasgow City Centre & Kirkintiloch.</p>
+                <h1>Personal Training <span>with Stacey McGhee</span></h1>
+                <p>Professional 1-to-1 personal training with me, Stacey at Club Gym in Glasgow City Centre & Kirkintiloch.</p>
                 <ul class="hero-checkmarks">
                     <li>8+ Years PT experience</li>
                     <li>Scottish & world kickboxing multi-title winner</li>
@@ -765,41 +791,24 @@
                     <li>Training men & women for both weight loss and muscle gain</li>
                 </ul>
                 <div class="cta-buttons">
-                    <a href="https://wa.me/447596414425" target="_blank" class="btn btn-primary">💬 WhatsApp Me</a>
+                    <a href="https://wa.me/447596414425" target="_blank" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; margin-right: 8px; vertical-align: middle;">
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.05-1.58C10.03 21.63 10.99 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-.89 0-1.77-.17-2.61-.49l-.19-.09-1.94.51.52-1.91-.12-.19C4.39 16.4 4 14.27 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.07-7.18c-.22-.11-1.31-.65-1.52-.72-.21-.08-.36-.11-.52.11-.16.22-.62.72-.76.87-.14.15-.28.17-.5.06-.22-.11-.92-.34-1.75-1.08-.65-.58-1.08-1.28-1.21-1.5-.12-.21-.01-.33.1-.44.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.08-.15.04-.28-.02-.39-.06-.11-.52-1.25-.71-1.71-.19-.45-.38-.39-.52-.4-.13-.01-.28-.01-.43-.01-.14 0-.37.05-.56.27-.2.21-.76.74-.76 1.81 0 1.07.78 2.1.88 2.25.1.15 1.4 2.14 3.4 3 .48.2.85.32 1.14.41.48.16.92.14 1.27.08.39-.06 1.21-.49 1.38-.97.17-.47.17-.88.12-.97-.05-.09-.19-.14-.41-.23z"/>
+                        </svg>
+                        WhatsApp Me
+                    </a>
                     <a href="#testimonials" class="btn btn-secondary">Client Results</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="srm-hero.jpg" alt="Professional personal trainer coaching client" />
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Performance Coaching SRM</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <h3>Professional Excellence in Personal Training</h3>
-                <p>With years of experience in fitness coaching and performance optimization, I'm dedicated to helping you achieve your health and fitness goals. My approach combines evidence-based training methods with personalized coaching to deliver real, measurable results.</p>
-                <p>Whether you're looking to build strength, improve endurance, lose weight, or optimize athletic performance, I'll create a customized program tailored specifically to your needs and lifestyle.</p>
-                <ul class="benefits-list">
-                    <li>Personalized training programs</li>
-                    <li>Nutrition guidance and support</li>
-                    <li>Progress tracking and adjustments</li>
-                    <li>Flexible scheduling options</li>
-                    <li>Accountability and motivation</li>
-                </ul>
-            </div>
-            <div class="about-image" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05)); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--gold);">
-                💪
+                <img src="srm-hero-2.jpg" alt="Professional personal trainer coaching client" />
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-        <h2 class="section-title">Our Services</h2>
+        <h2 class="section-title">My Services</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>One-to-One Coaching</h3>
@@ -828,14 +837,36 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Performance Coaching SRM</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Professional Excellence in Personal Training</h3>
+                <p>With years of experience in fitness coaching and performance optimization, I'm dedicated to helping you achieve your health and fitness goals. My approach combines evidence-based training methods with personalized coaching to deliver real, measurable results.</p>
+                <p>Whether you're looking to build strength, improve endurance, lose weight, or optimize athletic performance, I'll create a customized program tailored specifically to your needs and lifestyle.</p>
+                <ul class="benefits-list">
+                    <li>Personalized training programs</li>
+                    <li>Nutrition guidance and support</li>
+                    <li>Progress tracking and adjustments</li>
+                    <li>Flexible scheduling options</li>
+                    <li>Accountability and motivation</li>
+                </ul>
+            </div>
+            <div class="about-image" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05)); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--gold);">
+                💪
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Section -->
     <section id="why-choose">
-        <h2 class="section-title">Why Choose Us</h2>
+        <h2 class="section-title">Why Choose Me</h2>
         <div class="why-grid">
             <div class="why-card">
                 <div class="why-icon">🎯</div>
                 <h3>Goal-Focused</h3>
-                <p>Every program is designed with your specific goals in mind. We measure progress and adjust accordingly.</p>
+                <p>Every program is designed with your specific goals in mind. I measure progress and adjust accordingly.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon">📊</div>
@@ -867,7 +898,7 @@
 
     <!-- Testimonials Section -->
     <section id="testimonials">
-        <h2 class="section-title">What Our Clients Say</h2>
+        <h2 class="section-title">What My Clients Say</h2>
         <div class="testimonials-grid">
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
@@ -947,19 +978,20 @@
             <div class="contact-method">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <p class="contact-info">Get in touch via email</p>
-                <a href="mailto:your-email@example.com">your-email@example.com</a>
+                <a href="mailto:srmperformancecoaching@outlook.com">srmperformancecoaching@outlook.com</a>
             </div>
             <div class="contact-method">
-                <div class="contact-icon">💬</div>
+                <div class="contact-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l6.05-1.58C10.03 21.63 10.99 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-.89 0-1.77-.17-2.61-.49l-.19-.09-1.94.51.52-1.91-.12-.19C4.39 16.4 4 14.27 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.07-7.18c-.22-.11-1.31-.65-1.52-.72-.21-.08-.36-.11-.52.11-.16.22-.62.72-.76.87-.14.15-.28.17-.5.06-.22-.11-.92-.34-1.75-1.08-.65-.58-1.08-1.28-1.21-1.5-.12-.21-.01-.33.1-.44.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.08-.15.04-.28-.02-.39-.06-.11-.52-1.25-.71-1.71-.19-.45-.38-.39-.52-.4-.13-.01-.28-.01-.43-.01-.14 0-.37.05-.56.27-.2.21-.76.74-.76 1.81 0 1.07.78 2.1.88 2.25.1.15 1.4 2.14 3.4 3 .48.2.85.32 1.14.41.48.16.92.14 1.27.08.39-.06 1.21-.49 1.38-.97.17-.47.17-.88.12-.97-.05-.09-.19-.14-.41-.23z"/>
+                    </svg>
+                </div>
                 <h3>WhatsApp</h3>
-                <p class="contact-info">Quick messaging support</p>
                 <a href="https://wa.me/447596414425" target="_blank">+44 7596 414425</a>
             </div>
             <div class="contact-method">
                 <div class="contact-icon">📱</div>
-                <h3>Phone</h3>
-                <p class="contact-info">Direct call support</p>
+                <h3>Call or Text</h3>
                 <a href="tel:+447596414425">+44 7596 414425</a>
             </div>
         </div>
