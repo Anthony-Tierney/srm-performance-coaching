@@ -70,8 +70,10 @@
         }
 
         .logo img {
-            width: 50px;
-            height: 50px;
+            width: auto;
+            height: auto;
+            max-width: 60px;
+            max-height: 60px;
             display: block;
         }
 
@@ -378,14 +380,21 @@
             background: var(--primary);
         }
 
+        .services-container {
+            position: relative;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
         .services-grid {
             display: flex;
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
             overflow-x: auto;
             padding-bottom: 1rem;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            width: 100%;
         }
 
         .services-grid::-webkit-scrollbar {
@@ -414,8 +423,50 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            min-width: 280px;
+            min-width: 260px;
+            max-width: 260px;
             flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: -60px;
+            right: auto;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+            width: calc(100% + 120px);
+            justify-content: space-between;
+            padding: 0 10px;
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--primary);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            pointer-events: all;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
         }
 
         .service-card::before {
@@ -757,7 +808,7 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo">
-                <img src="srm-logo.jpeg" alt="SRM Performance Coaching Logo">
+                <img src="srm-logo.png" alt="SRM Performance Coaching Logo">
             </a>
             <nav>
                 <ul>
@@ -783,11 +834,11 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Personal Training <span>with Stacey McGhee</span></h1>
-                <p>Professional 1-to-1 personal training with me, Stacey at Club Gym in Glasgow City Centre & Kirkintiloch.</p>
+                <p>Professional 1-to-1 personal training with me, Stacey at Club Gym Glasgow City Centre & Kirkintiloch.</p>
                 <ul class="hero-checkmarks">
-                    <li>8+ Years PT experience</li>
+                    <li>8+ years PT experience</li>
                     <li>Scottish & world kickboxing multi-title winner</li>
-                    <li>GB Boxing Squad - Tokyo Olympics</li>
+                    <li>GB boxing squad - Tokyo Olympics</li>
                     <li>Training men & women for both weight loss and muscle gain</li>
                 </ul>
                 <div class="cta-buttons">
@@ -809,30 +860,58 @@
     <!-- Services Section -->
     <section id="services">
         <h2 class="section-title">My Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>One-to-One Coaching</h3>
-                <p>Dedicated personal training sessions tailored to your specific goals, fitness level, and preferences. Full attention and expert guidance every step of the way.</p>
+        <div class="services-container">
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="servicesScrollLeft">❮</button>
+                <button class="carousel-btn" id="servicesScrollRight">❯</button>
             </div>
-            <div class="service-card">
-                <h3>Online Training</h3>
-                <p>Access professional coaching from anywhere. Perfect for those with busy schedules or who prefer training from home. Full support and programming included.</p>
+            <div class="services-grid" id="servicesGrid">
+                <div class="service-card">
+                    <h3>One-to-One Coaching</h3>
+                    <p>Dedicated personal training sessions tailored to your specific goals, fitness level, and preferences. Full attention and expert guidance every step of the way.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Online Training</h3>
+                    <p>Access professional coaching from anywhere. Perfect for those with busy schedules or who prefer training from home. Full support and programming included.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Nutrition Planning</h3>
+                    <p>Customized nutrition strategies to complement your training and maximize results. Simple, sustainable approaches that fit your lifestyle.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Group Training</h3>
+                    <p>Energy-packed group sessions designed to push your limits while building community. Great for motivation and accountability.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Athletic Performance</h3>
+                    <p>Sport-specific training programs to enhance your athletic capabilities, improve technique, and prevent injuries.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Transformation Plans</h3>
+                    <p>Comprehensive programs combining training, nutrition, and lifestyle coaching for complete body and mind transformation.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Nutrition Planning</h3>
-                <p>Customized nutrition strategies to complement your training and maximize results. Simple, sustainable approaches that fit your lifestyle.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="section-title">What My Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Working with SRM transformed not just my physique, but my entire approach to fitness. The personalized programming and constant support made all the difference."</p>
+                <div class="testimonial-author">Sarah M.</div>
             </div>
-            <div class="service-card">
-                <h3>Group Training</h3>
-                <p>Energy-packed group sessions designed to push your limits while building community. Great for motivation and accountability.</p>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"I've worked with several trainers before, but the level of professionalism and results I've achieved here are unmatched. Highly recommended!"</p>
+                <div class="testimonial-author">James T.</div>
             </div>
-            <div class="service-card">
-                <h3>Athletic Performance</h3>
-                <p>Sport-specific training programs to enhance your athletic capabilities, improve technique, and prevent injuries.</p>
-            </div>
-            <div class="service-card">
-                <h3>Transformation Plans</h3>
-                <p>Comprehensive programs combining training, nutrition, and lifestyle coaching for complete body and mind transformation.</p>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"The flexibility of online training meant I could finally commit to my fitness goals with my busy schedule. The coaching is outstanding."</p>
+                <div class="testimonial-author">Emma P.</div>
             </div>
         </div>
     </section>
@@ -892,28 +971,6 @@
                 <div class="why-icon">✅</div>
                 <h3>Results</h3>
                 <p>Proven track record of helping clients achieve their fitness and health goals consistently.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2 class="section-title">What My Clients Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p>"Working with SRM transformed not just my physique, but my entire approach to fitness. The personalized programming and constant support made all the difference."</p>
-                <div class="testimonial-author">Sarah M.</div>
-            </div>
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p>"I've worked with several trainers before, but the level of professionalism and results I've achieved here are unmatched. Highly recommended!"</p>
-                <div class="testimonial-author">James T.</div>
-            </div>
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p>"The flexibility of online training meant I could finally commit to my fitness goals with my busy schedule. The coaching is outstanding."</p>
-                <div class="testimonial-author">Emma P.</div>
             </div>
         </div>
     </section>
@@ -999,10 +1056,40 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Performance Coaching <span>SRM</span>. All rights reserved. | <a href="/" style="color: var(--text-light); text-decoration: none;">www.srmperformancecoaching.co.uk</a></p>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+            <p>&copy; 2026 SRM Performance Coaching. All rights reserved. | <a href="/" style="color: var(--text-light); text-decoration: none;">www.srmperformancecoaching.co.uk</a></p>
+            <a href="https://www.instagram.com/srmperformancecoaching" target="_blank" style="color: var(--gold); font-size: 1.5rem; text-decoration: none; transition: var(--transition);" title="Follow us on Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                </svg>
+            </a>
+        </div>
     </footer>
 
     <script>
+        // Services carousel navigation
+        const servicesGrid = document.getElementById('servicesGrid');
+        const scrollLeftBtn = document.getElementById('servicesScrollLeft');
+        const scrollRightBtn = document.getElementById('servicesScrollRight');
+
+        if (servicesGrid && scrollLeftBtn && scrollRightBtn) {
+            const scrollAmount = 276; // 260px card width + 16px spacing
+
+            scrollLeftBtn.addEventListener('click', () => {
+                servicesGrid.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                servicesGrid.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
         // Smooth scroll navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
