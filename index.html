@@ -505,7 +505,7 @@
 
         .why-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -586,7 +586,7 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2.5rem;
             margin-top: 3rem;
         }
@@ -603,7 +603,6 @@
 
         .pricing-card.featured {
             border-color: var(--gold);
-            transform: scale(1.05);
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
         }
 
@@ -636,6 +635,17 @@
             padding: 0.8rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             color: var(--text-muted);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .pricing-features li:last-child {
@@ -779,12 +789,20 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
             .pricing-card.featured {
                 transform: scale(1);
             }
 
             .pricing-card:hover {
                 transform: translateY(-5px);
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
             }
 
             section {
@@ -870,6 +888,10 @@
                     <p>Dedicated personal training sessions tailored to your specific goals, fitness level, and preferences. Full attention and expert guidance every step of the way.</p>
                 </div>
                 <div class="service-card">
+                    <h3>Boxing / Kickboxing</h3>
+                    <p>Specialized combat sports training combining boxing and kickboxing techniques. Build explosive power, precision, and confidence while getting an intense cardiovascular workout. Perfect for fitness goals and self-defense skills.</p>
+                </div>
+                <div class="service-card">
                     <h3>Online Training</h3>
                     <p>Access professional coaching from anywhere. Perfect for those with busy schedules or who prefer training from home. Full support and programming included.</p>
                 </div>
@@ -880,10 +902,6 @@
                 <div class="service-card">
                     <h3>Group Training</h3>
                     <p>Energy-packed group sessions designed to push your limits while building community. Great for motivation and accountability.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Athletic Performance</h3>
-                    <p>Sport-specific training programs to enhance your athletic capabilities, improve technique, and prevent injuries.</p>
                 </div>
                 <div class="service-card">
                     <h3>Transformation Plans</h3>
@@ -915,59 +933,67 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Performance Coaching SRM</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <h3>Professional Excellence in Personal Training</h3>
-                <p>With years of experience in fitness coaching and performance optimization, I'm dedicated to helping you achieve your health and fitness goals. My approach combines evidence-based training methods with personalized coaching to deliver real, measurable results.</p>
-                <p>Whether you're looking to build strength, improve endurance, lose weight, or optimize athletic performance, I'll create a customized program tailored specifically to your needs and lifestyle.</p>
-                <ul class="benefits-list">
-                    <li>Personalized training programs</li>
-                    <li>Nutrition guidance and support</li>
-                    <li>Progress tracking and adjustments</li>
-                    <li>Flexible scheduling options</li>
-                    <li>Accountability and motivation</li>
-                </ul>
-            </div>
-            <div class="about-image" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05)); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--gold);">
-                💪
-            </div>
-        </div>
-    </section>
-
     <!-- Why Choose Section -->
     <section id="why-choose">
         <h2 class="section-title">Why Choose Me</h2>
         <div class="why-grid">
             <div class="why-card">
-                <div class="why-icon">🎯</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="14" stroke="#d4af37" stroke-width="2"/>
+                        <circle cx="24" cy="24" r="2" fill="#d4af37"/>
+                    </svg>
+                </div>
                 <h3>Goal-Focused</h3>
                 <p>Every program is designed with your specific goals in mind. I measure progress and adjust accordingly.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">📊</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="28" width="8" height="12" fill="#d4af37"/>
+                        <rect x="20" y="18" width="8" height="22" fill="#d4af37"/>
+                        <rect x="32" y="8" width="8" height="32" fill="#d4af37"/>
+                    </svg>
+                </div>
                 <h3>Data-Driven</h3>
                 <p>Using science-backed training principles and regular assessments to ensure optimal results.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">💯</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 24L20 34L38 14" stroke="#d4af37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <h3>Professional</h3>
                 <p>Certified and experienced coaching with a focus on proper form, safety, and injury prevention.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">⏰</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="18" stroke="#d4af37" stroke-width="2"/>
+                        <line x1="24" y1="8" x2="24" y2="24" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="24" y1="24" x2="32" y2="32" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <h3>Flexible</h3>
                 <p>Accommodating schedules with options for in-person or online training to fit your lifestyle.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">🤝</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 18C10 18 12 12 18 12C22 12 24 16 24 16C24 16 26 12 30 12C36 12 38 18 38 18M10 18C10 20 10 24 10 28C10 36 16 40 24 40C32 40 38 36 38 28C38 24 38 20 38 18" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <h3>Supportive</h3>
                 <p>Beyond training—ongoing motivation, accountability, and support to keep you on track.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">✅</div>
+                <div class="why-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 24L18 34L40 12" stroke="#d4af37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <h3>Results</h3>
                 <p>Proven track record of helping clients achieve their fitness and health goals consistently.</p>
             </div>
@@ -979,41 +1005,56 @@
         <h2 class="section-title">Pricing Plans</h2>
         <div class="pricing-grid">
             <div class="pricing-card">
-                <h3>Single Session</h3>
-                <p style="color: var(--text-muted); margin-bottom: 0;">1 Session</p>
-                <div class="price">£45<span></span></div>
+                <h3>Package 1</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">1 Session Every 2 Weeks</p>
+                <div class="price">£85<span></span></div>
                 <ul class="pricing-features">
-                    <li>x1 single session</li>
-                    <li>Basic nutritional advice</li>
-                    <li>Complimentary weigh in and body composition scan</li>
-                </ul>
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-            </div>
-            <div class="pricing-card featured">
-                <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Save £60</div>
-                <h3>Block Booking</h3>
-                <p style="color: var(--text-muted); margin-bottom: 0;">8 Sessions/Month</p>
-                <div class="price">£300<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>x8 one-to-one sessions</li>
-                    <li>Full nutrition planning</li>
-                    <li>Weekly progress review</li>
-                    <li>24/7 messaging support</li>
-                    <li>Monthly assessment</li>
+                    <li>Initial consultation</li>
+                    <li>Body composition measurements</li>
+                    <li>Training program</li>
+                    <li>Nutritional help & guidance</li>
+                    <li>24/7 support</li>
                 </ul>
                 <a href="#contact" class="btn btn-primary">Get in Touch</a>
             </div>
             <div class="pricing-card">
-                <h3>Elite</h3>
-                <p style="color: var(--text-muted); margin-bottom: 0;">12 Sessions/Month</p>
-                <div class="price">£549<span>/month</span></div>
+                <h3>Package 2</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">1 Session Per Week</p>
+                <div class="price">£170<span>/month</span></div>
                 <ul class="pricing-features">
-                    <li>12 one-to-one sessions</li>
-                    <li>Complete nutrition program</li>
-                    <li>Bi-weekly assessments</li>
-                    <li>Priority support</li>
-                    <li>Program customization</li>
-                    <li>Accountability coaching</li>
+                    <li>Initial consultation</li>
+                    <li>Body composition measurements</li>
+                    <li>Training program</li>
+                    <li>Nutritional help & guidance</li>
+                    <li>24/7 support</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="pricing-card featured">
+                <div style="position: absolute; top: 10px; right: 20px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Save £40</div>
+                <h3>Package 3</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">2 Sessions Per Week</p>
+                <div class="price">£300<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Initial consultation</li>
+                    <li>Body composition measurements</li>
+                    <li>Training program</li>
+                    <li>Nutritional help & guidance</li>
+                    <li>24/7 support</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="pricing-card">
+                <div style="position: absolute; top: 10px; right: 20px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--primary); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Save £90</div>
+                <h3>Package 4</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0;">3 Sessions Per Week</p>
+                <div class="price">£420<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li>Initial consultation</li>
+                    <li>Body composition measurements</li>
+                    <li>Training program</li>
+                    <li>Nutritional help & guidance</li>
+                    <li>24/7 support</li>
                 </ul>
                 <a href="#contact" class="btn btn-primary">Get in Touch</a>
             </div>
